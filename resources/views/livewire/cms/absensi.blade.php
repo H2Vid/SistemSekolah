@@ -7,7 +7,7 @@
             <div class="table-responsive">
                 <div>
                     <div class="row mb-3">
-                        @if($this->akses_insert == 1)   
+                        @if($this->akses_insert == 1)
                             <div class="col-md-3">
                                 <div class="btn-fitur-group">
                                     @if($this->akses_export == 1)
@@ -48,6 +48,15 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <div class="col-md-2">
+                            <select  class="form-control btn-filter">
+                                <option value="">Tahun Ajaran</option>
+                                    <option >2024/2025</option>
+                                    <option >2023/2024</option>
+                                    <option >2022/2023</option>
+                                    <option >2021/2024</option>
+                            </select>
+                        </div>
                             <div class="col-md-2">
                                 <select wire:model.live="pertemuan_ke" class="form-control btn-filter">
                                     <option value="">Pertemuan Ke</option>
