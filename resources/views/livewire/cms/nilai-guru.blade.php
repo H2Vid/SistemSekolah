@@ -76,6 +76,9 @@
                             <x-mazer-loop-th :$searchBy :$orderBy :$order />
                           <th>Nilai Akhir</th>
                             <th style="width: 8%!important; text-align: center;">
+                                Tahun Ajaran
+                            </th>
+                            <th style="width: 8%!important; text-align: center;">
                                 Aksi
                             </th>
                         </tr>
@@ -96,6 +99,9 @@
                                 <td>{{ $d->kebersihan }}</td> <!-- Kolom Kebersihan -->
                                 <td>{{ $d->kedisiplinan }}</td> <!-- Kolom Kedisiplinan -->
                                 <td>{{ ($d->ph1 * 0.3) + ($d->ph2 * 0.3) + ($d->uts * 0.2) + ($d->uas * 0.2) }}</td>
+                                <td style="text-align: right; white-space:nowrap;">
+                                   <p>2024/2025</p>
+                                </td>
                                 <td style="text-align: right; white-space:nowrap;">
                                     <button
                                         title="Ubah"
