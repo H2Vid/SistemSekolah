@@ -9,7 +9,7 @@
                     <div class="row mb-3">
                         <div class="col-md-3">
                             <div class="btn-fitur-group">
-                            @if($this->akses_export == 1)
+                               @if($this->akses_export == 1)
     <div class="btn-group">
         <button type="button" class="btn btn-primary">
             <i class="align-middle" data-feather="download"></i> Download
@@ -329,32 +329,32 @@
                                     @forelse($list_siswa as $d)
                                     <tr>
                                     <td>{{ $counter }}</td>
-                                    <td>{{ $d->nama }}</td>
-                                    <td>
-                                        <input type="text" class="form-control" name="ph1.{{ $d->id }}" wire:model="ph1.{{ $d->id }}" style="width: 50px;" min="0" max="100 require>
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control" name="ph2.{{ $d->id }}" wire:model="ph2.{{ $d->id }}" style="width: 50px;">
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control" name="uts.{{ $d->id }}" wire:model="uts.{{ $d->id }}" style="width: 50px;">
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control" name="uas.{{ $d->id }}" wire:model="uas.{{ $d->id }}" style="width: 50px;">
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control" name="nilai_keterampilan.{{ $d->id }}" wire:model="nilai_keterampilan.{{ $d->id }}" style="width: 50px;">
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control" name="sikap.{{ $d->id }}" wire:model="sikap.{{ $d->id }}" style="width: 50px;">
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control" name="kedisiplinan.{{ $d->id }}" wire:model="kedisiplinan.{{ $d->id }}" style="width: 50px;">
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control" name="uas.{{ $d->id }}" wire:model="kebersihan.{{ $d->id }}" style="width: 50px;">
-                                    </td>
-                                </tr>
+    <td>{{ $d->nama }}</td>
+    <td>
+        <input type="text" class="form-control" name="ph1.{{ $d->id }}" wire:model="ph1.{{ $d->id }}" style="width: 50px;">
+    </td>
+    <td>
+        <input type="text" class="form-control" name="ph2.{{ $d->id }}" wire:model="ph2.{{ $d->id }}" style="width: 50px;">
+    </td>
+    <td>
+        <input type="text" class="form-control" name="uts.{{ $d->id }}" wire:model="uts.{{ $d->id }}" style="width: 50px;">
+    </td>
+    <td>
+        <input type="text" class="form-control" name="uas.{{ $d->id }}" wire:model="uas.{{ $d->id }}" style="width: 50px;">
+    </td>
+    <td>
+        <input type="text" class="form-control" name="nilai_keterampilan.{{ $d->id }}" wire:model="nilai_keterampilan.{{ $d->id }}" style="width: 50px;">
+    </td>
+    <td>
+        <input type="text" class="form-control" name="sikap.{{ $d->id }}" wire:model="sikap.{{ $d->id }}" style="width: 50px;">
+    </td>
+    <td>
+        <input type="text" class="form-control" name="kedisiplinan.{{ $d->id }}" wire:model="kedisiplinan.{{ $d->id }}" style="width: 50px;">
+    </td>
+    <td>
+        <input type="text" class="form-control" name="uas.{{ $d->id }}" wire:model="kebersihan.{{ $d->id }}" style="width: 50px;">
+    </td>
+</tr>
                                         @php
                                             $counter++;
                                         @endphp
