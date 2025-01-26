@@ -311,22 +311,6 @@ class NilaiGuru extends BaseComponent
         }
     }
 
-    public function changePertemuan($value_pertemuan=null){
-        // $this->input_kelas = Jadwal::where('kode_mapel', $this->value_kode_mapel)->select('kode_kelas', DB::raw('COUNT(*) as count'))->groupBy('kode_kelas')->get();
-        // $getJadwal = Jadwal::where('kode_kelas', $this->value_kode_kelas)->where('kode_mapel', $this->value_kode_mapel)->select('id')->first();
-        // $cekNilai = NilaiModel::join('jadwal_pelajaran as j', 'j.id', '=', 'nilai.id_jadwal')
-        //                             ->where('j.kode_mapel', $this->value_kode_mapel)
-        //                             ->where('j.kode_kelas', $this->value_kode_kelas)
-        //                             ->count();
-        // if($cekNilai == 0){
-        //     $this->list_siswa = Siswa::where('kode_kelas', $this->value_kode_kelas)->select('nama', 'nisn', 'id')->get();
-        // }else{
-        //     $this->value_kode_kelas = "";
-        //     $this->value_kode_mapel = "";
-        //     $this->dispatch('notification-failed');
-        // }
-    }
-
     public function simpan(){
         try {
             $siswa = Siswa::where('kode_kelas', $this->value_kode_kelas)->where('semester_id', $this->value_semester_id)->select('nisn', 'id')->get();

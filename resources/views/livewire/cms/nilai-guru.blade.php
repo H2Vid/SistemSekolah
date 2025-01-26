@@ -9,16 +9,21 @@
                     <div class="row mb-3">
                         <div class="col-md-3">
                             <div class="btn-fitur-group">
-                                @if($this->akses_export == 1)
-                                    <button
-                                        style="float: right; margin-left: 10px;"
-                                        class="btn btn-primary btn-export"
-                                        wire:click="export('xlsx')"
-                                    >
-                                        <i class="align-middle" data-feather="download"></i>
-                                        Download
-                                    </button>
-                                @endif
+                            @if($this->akses_export == 1)
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary">
+            <i class="align-middle" data-feather="download"></i> Download
+        </button>
+        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="visually-hidden">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/cms/nilaigurupdf?nip={{session()->get('store_username')}}" target="_BLANK"><i class="align-middle" data-feather="file-text"></i> Download PDF</a></li>
+            <li><a class="dropdown-item" wire:click="export('xlsx')"><i class="align-middle" data-feather="file-text"></i> Download Excel</a></li>
+        </ul>
+    </div>
+@endif
+
                                 <button
                                     class="btn btn-success btn-tambah-table"
                                     wire:loading.attr="disabled"
@@ -245,7 +250,9 @@
                                             id="form-add"
                                             wire:loading.attr="disabled"
                                             wire:target="changeSubmit"
+                                            onclick="validateAndSubmit(event)"
                                             type="submit">
+
                                             <i class="align-middle" data-feather="save"></i>
                                             Simpan
                                         </button>
@@ -324,7 +331,7 @@
                                     <td>{{ $counter }}</td>
                                     <td>{{ $d->nama }}</td>
                                     <td>
-                                        <input type="text" class="form-control" name="ph1.{{ $d->id }}" wire:model="ph1.{{ $d->id }}" style="width: 50px;">
+                                        <input type="text" class="form-control" name="ph1.{{ $d->id }}" wire:model="ph1.{{ $d->id }}" style="width: 50px;" min="0" max="100 require>
                                     </td>
                                     <td>
                                         <input type="text" class="form-control" name="ph2.{{ $d->id }}" wire:model="ph2.{{ $d->id }}" style="width: 50px;">
@@ -431,5 +438,33 @@
         closeButton.click(); // Klik tombol close untuk menutup modal
     }
 });
+function validateAndSubmit(event) {
+    // Ambil nilai input dari Livewire
+    let change_ph1 = @this.change_ph1;  // Ganti dengan nama variabel yang sesuai
+    let change_ph2 = @this.change_ph2;
+    let change_uts = @this.change_uts;
+    let change_uas = @this.change_uas;
+    let change_nilai_keterampilan = @this.change_nilai_keterampilan;
+    let change_sikap = @this.change_sikap;
+    let change_kebersihan = @this.change_kebersihan;
+    let change_kedisiplinan = @this.change_kedisiplinan;
+
+    // Cek jika ada nilai yang tidak berada dalam rentang 0-100
+    if (
+        (change_ph1 < 0 || change_ph1 > 100) ||
+        (change_ph2 < 0 || change_ph2 > 100) ||
+        (change_uts < 0 || change_uts > 100) ||
+        (change_uas < 0 || change_uas > 100) ||
+        (change_nilai_keterampilan < 0 || change_nilai_keterampilan > 100) ||
+        (change_sikap < 0 || change_sikap > 100) ||
+        (change_kebersihan < 0 || change_kebersihan > 100) ||
+        (change_kedisiplinan < 0 || change_kedisiplinan > 100)
+    ) {
+        // Jika ada nilai yang tidak valid, tampilkan alert dan cegah form untuk disubmit
+        alert('Harap isi pada rentang nilai 0 sampai 100');
+        event.preventDefault();  // Cegah form disubmit
+    }
+}
+
 
 </script>

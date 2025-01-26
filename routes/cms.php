@@ -1,12 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Exports\ExcelExport;
 use App\Http\Controllers\Rapot;
 use App\Http\Controllers\Jadwal;
-use App\Models\Jadwal as JadwalModel;
+use App\Http\Controllers\NilaiGuru;
 
-use App\Exports\ExcelExport;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Models\Jadwal as JadwalModel;
+use Illuminate\Support\Facades\Route;
 
 Route::group([
     'prefix' => 'cms',
@@ -14,6 +15,7 @@ Route::group([
     'middleware' => ['auth', 'role:admin'],
 ], function() {
     Route::get('/rapot', Rapot::class);
+    Route::get('/nilaigurupdf', NilaiGuru::class);
     Route::get('/download-jadwal', Jadwal::class);
     Route::get('/', App\Livewire\Cms\Dashboard::class)->name('dashboard');
     Route::get('', App\Livewire\Cms\Dashboard::class)->name('dashboard');
@@ -49,8 +51,8 @@ Route::group([
     Route::get('pengaturan/penarikan', App\Livewire\Cms\Setting\Withdraw::class)->name('pengaturan.penarikan');
     Route::get('pengaturan/bank', App\Livewire\Cms\Setting\Bank::class)->name('pengaturan.bank');
 
-    
-    
+
+
 });
 
 
